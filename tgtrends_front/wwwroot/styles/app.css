@@ -395,40 +395,45 @@ body {
   content: "An error has occurred.";
 }
 
-.loading-progress {
-  position: relative;
-  display: block;
-  width: 8rem;
-  height: 8rem;
-  margin: 20vh auto 1rem auto;
-}
-.loading-progress circle {
-  fill: none;
-  stroke: #e0e0e0;
-  stroke-width: 0.6rem;
-  transform-origin: 50% 50%;
-  transform: rotate(-90deg);
-}
-
-.loading-progress circle:last-child {
-  stroke: #1b42c2;
-  stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-  transition: stroke-dasharray 0.05s ease-in-out;
-}
-
-.loading-progress-text {
-  position: absolute;
-  text-align: center;
-  font-weight: bold;
-  inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
-}
-
-.loading-progress-text:after {
-  content: var(--blazor-load-percentage-text, "Loading");
-}
-
 code {
   color: #c02d76;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 15%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0088cc;
+  transition: opacity 0.5s ease-in-out;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.loading-container {
+  width: 75%;
+  height: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.loading-bar {
+  width: 0%;
+  height: 100%;
+  background: white;
+  transition: width 0.25s ease-in;
 }
 
 /*# sourceMappingURL=app.css.map */
