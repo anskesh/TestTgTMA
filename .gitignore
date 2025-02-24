@@ -1,0 +1,33 @@
+# .NET
+bin/
+obj/
+
+# Rider
+.idea/
+*.iml
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# Временные файлы
+*.log
+*.tmp
+*.bak
+*.cache
+*.swp
+
+# Конфигурации
+appsettings.json
+appsettings.*.json
+*.env
+
+# Публикация
+publish/
+wwwroot/publish/
+
+# ОС
+.DS_Store
+Thumbs.db
