@@ -1,0 +1,299 @@
+.feed-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.feed__header {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 2.375rem;
+  top: 0;
+  padding: 0 0.75rem 0 0.75rem;
+  margin-top: 2.8125rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.feed__header .feed__category:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.feed__category {
+  min-width: 7rem;
+  width: auto;
+  height: 1.875rem;
+}
+.feed__category button {
+  border: none;
+  background: none;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 120%;
+  margin-bottom: 0.5rem;
+}
+.feed__category .dropdown-content {
+  display: none;
+  position: absolute;
+}
+.feed__category .dropdown-content button {
+  text-align: left;
+  color: var(--color-gray);
+}
+.feed__category .dropdown-content button:hover {
+  color: var(--color-light);
+}
+
+.header__info {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.header__info .header__tokens {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 31.25rem;
+  position: relative;
+  background: none;
+  width: 4.875rem;
+  height: 100%;
+  margin-right: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.header__info .header__tokens::before {
+  border-radius: 31.25rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(40px);
+  background: linear-gradient(to bottom, rgba(37, 37, 37, 0.55), rgba(37, 37, 37, 0.55));
+  z-index: -1;
+}
+.header__info .header__tokens img {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+.header__info .header__tokens span {
+  font-size: 0.9375rem;
+}
+.header__info .header__profile {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 31.25rem;
+  position: relative;
+  background: none;
+  width: 2.375rem;
+  height: 100%;
+}
+.header__info .header__profile::before {
+  border-radius: 31.25rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(40px);
+  background: linear-gradient(to bottom, rgba(37, 37, 37, 0.55), rgba(37, 37, 37, 0.55));
+  z-index: -1;
+}
+.header__info .header__profile img {
+  background: none;
+  width: 0.875rem;
+  height: 0.8125rem;
+}
+
+.feed_posts {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+.feed_posts .message {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+}
+.feed_posts .message-visual-content {
+  z-index: -5;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.feed_posts .message-visual-content img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+.feed_posts .message-visual-content .message_background {
+  filter: blur(1.875rem);
+  object-fit: cover;
+}
+.feed_posts .message-visual-content .message_image {
+  object-fit: contain;
+}
+.feed_posts .message-visual-content .shadow {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 2%, rgba(0, 0, 0, 0) 21%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 80%);
+}
+.feed_posts .message-visual-content .message-opened {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.message-info {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.75rem 1.125rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.message-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.25rem;
+  height: 100%;
+}
+.message-text .text-scroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 85%;
+  height: 6.25rem;
+  margin-right: 1rem;
+}
+.message-text .text-scroll svg {
+  margin-bottom: 0.5rem;
+  height: 1.5rem;
+}
+.message-text .text-scroll span {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  font-size: 0.9375rem;
+  line-height: 130%;
+  font-weight: 400;
+}
+.message-text .message-statistics {
+  display: flex;
+  flex-direction: column;
+  width: 3.25rem;
+}
+.message-text .message-statistics button {
+  border: none;
+  background: none;
+  margin-top: 0.5rem;
+}
+.message-text .message-statistics span {
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 138%;
+}
+
+.message-channel {
+  height: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.message-channel .channel-info {
+  display: flex;
+  flex-direction: row;
+  width: 11.3125rem;
+}
+.message-channel .channel-info img {
+  width: 2.375rem;
+  height: 2.375rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+.message-channel .channel-info .channel-text-info {
+  display: flex;
+  flex-direction: column;
+  width: 5.625rem;
+}
+.message-channel .channel-info .channel-text-info .channel-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 133%;
+  width: 100%;
+  height: 1.25rem;
+}
+.message-channel .channel-info .channel-text-info .channel-last-time {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 138%;
+  letter-spacing: -0.01px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.message-channel .channel-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 2.375rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 31.25rem;
+  position: relative;
+  background: none;
+  width: 6.0625rem;
+  padding: 0.625rem 0.75rem;
+}
+.message-channel .channel-link::before {
+  border-radius: 31.25rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(40px);
+  background: linear-gradient(to bottom, rgba(37, 37, 37, 0.55), rgba(37, 37, 37, 0.55));
+  z-index: -1;
+}
+.message-channel .channel-link svg {
+  color: var(--color-gray);
+  margin-right: 0.5rem;
+}
+.message-channel .channel-link span {
+  color: var(--color-gray);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+/*# sourceMappingURL=feed.css.map */

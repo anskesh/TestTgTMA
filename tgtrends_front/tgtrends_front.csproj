@@ -11,4 +11,18 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.11" PrivateAssets="all"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\css\app.css" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\styles\feed.css" />
+      <None Include="wwwroot\styles\feed.css.map" />
+      <None Include="wwwroot\styles\feed.scss" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\images\" />
+    </ItemGroup>
+
 </Project>

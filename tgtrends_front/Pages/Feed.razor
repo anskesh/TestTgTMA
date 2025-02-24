@@ -1,7 +1,41 @@
 ﻿@page "/"
+@using tgtrends_front.Pages.Components
+
+<link href="styles/feed.css" rel="stylesheet" />
 
 <PageTitle>Feed</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<div class="feed-container">
+    <div class="feed__header">
+        <div class="feed__category">
+            <button>For You</button>
+            <svg width="24" height="13" viewBox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0071 12C12.3226 12 12.638 11.8979 12.853 11.6811L21.6559 3.79846C21.8709 3.60714 22 3.35203 22 3.05867C22 2.45918 21.4981 2 20.8243 2C20.5089 2 20.1936 2.12755 19.9784 2.30612L11.3333 10.0229H12.6666L4.0215 2.30612C3.80645 2.12755 3.51971 2 3.18996 2C2.51613 2 2 2.45918 2 3.05867C2 3.35203 2.12903 3.60714 2.34409 3.79846L11.1613 11.6811C11.3907 11.8979 11.6774 12 12.0071 12Z" fill="white" />
+            </svg>
+            <div class="dropdown-content">
+                <button>Following</button>
+                <button>News</button>
+                <button>Humor</button>
+                <button>Facts</button>
+                <button>Music</button>
+                <button>Sports</button>
+            </div>
+        </div>
+        <div class="header__info">
+            <button class="header__tokens">
+                <img src="images/Token.png"/>
+                <span>200</span>
+            </button>
+            <button class="header__profile">
+                <img src="images/User.png"/>
+            </button>
+        </div>
+    </div>
+    <div class="feed_posts">
+        <Message></Message>
+        <Message></Message>
+        <Message></Message>
+        <Message></Message>
+        <Message></Message>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+﻿@use "sass:math";
+
+$root-font-size: 16;
+
+@function rem($px) {
+  @if math.is-unitless($px) {
+    @return math.div($px, $root-font-size) * 1rem;
+  } @else {
+    @error "Expected a unitless value, got '#{$px}'. Use a number without units (e.g., rem(24) instead of rem(24px)).";
+  }
+}
