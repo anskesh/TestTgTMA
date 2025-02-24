@@ -101,6 +101,10 @@
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
   .message {
     width: 100vw;
     height: 100vh;

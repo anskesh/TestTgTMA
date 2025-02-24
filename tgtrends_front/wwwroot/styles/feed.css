@@ -121,6 +121,9 @@
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
+.feed_posts::-webkit-scrollbar {
+  display: none;
+}
 .feed_posts .message {
   width: 100vw;
   height: 100vh;
