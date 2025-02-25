@@ -4,20 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tgtrends_front</title>
+    <title>TgTrends</title>
     <base href="/" />
     <link rel="stylesheet" href="styles/app.css" />
 </head>
 
 <body>
-    <div id="app">
-    </div>
-    <div id="loading-screen">
+    <div id="app"></div>
+    
+    <div id="loading">
         <h1>Telegram Trends</h1>
-        <div class="loading-container">
-            <div class="loading-bar"></div>
+        <div class="loading__container">
+            <div class="loading__container-bar"></div>
         </div>
     </div>
+    
     <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
@@ -32,17 +33,16 @@
                     .replace('%', '') || 0);
 
                 console.log(percentage)
-                
-                document.querySelector('.loading-bar').style.width = percentage + "%";
+                document.querySelector('.loading__container-bar').style.width = percentage + "%";
 
                 if (percentage >= 100) {
                     setTimeout(() => {
-                        document.getElementById("loading-screen").style.opacity = "0";
+                        document.getElementById("loading").style.opacity = "0";
                         document.getElementById("app").style.display = "block";
                         setTimeout(() => {
-                            document.getElementById("loading-screen").style.display = "none";
-                        }, 500);
-                    }, 300);
+                            document.getElementById("loading").style.display = "none";
+                        }, 200);
+                    }, 500);
                 } else {
                     requestAnimationFrame(updateProgress);
                 }

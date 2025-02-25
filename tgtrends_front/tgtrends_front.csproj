@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Include="wwwroot\styles\components\_message.scss" />
       <None Include="wwwroot\styles\feed.css" />
       <None Include="wwwroot\styles\feed.css.map" />
       <None Include="wwwroot\styles\feed.scss" />

@@ -1,19 +1,10 @@
 ﻿@use "functions" as *;
 
-@mixin button {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  border-radius: rem(500);
-}
-
 @mixin blurred-background($blur: 40px, $color: linear-gradient(to bottom, rgba(37, 37, 37, 0.55), rgba(37, 37, 37, 0.55))) {
-  @include button;
   position: relative;
-  background: none;
+  background: transparent;
 
   &::before {
-    border-radius: rem(500);
     content: "";
     position: absolute;
     top: 0;
@@ -22,6 +13,7 @@
     height: 100%;
     backdrop-filter: blur($blur); 
     background: $color;
+    border-radius: rem(500);
     z-index: -1;
   }
 }

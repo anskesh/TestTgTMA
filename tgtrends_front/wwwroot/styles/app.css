@@ -351,8 +351,40 @@ body {
 }
 
 #app {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 31.25rem;
+}
+.button--blurred {
+  position: relative;
+  background: transparent;
+}
+.button--blurred::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(40px);
+  background: linear-gradient(to bottom, rgba(37, 37, 37, 0.55), rgba(37, 37, 37, 0.55));
+  border-radius: 31.25rem;
+  z-index: -1;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-visible {
+  display: block;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -399,7 +431,7 @@ code {
   color: #c02d76;
 }
 
-#loading-screen {
+#loading {
   position: fixed;
   top: 0;
   left: 0;
@@ -414,13 +446,12 @@ code {
   background-color: #0088cc;
   transition: opacity 0.5s ease-in-out;
 }
-
-h1 {
+#loading h1 {
   font-size: 28px;
   margin-bottom: 20px;
 }
 
-.loading-container {
+.loading__container {
   width: 75%;
   height: 1rem;
   background: rgba(255, 255, 255, 0.3);
@@ -429,8 +460,8 @@ h1 {
   margin-bottom: 10px;
 }
 
-.loading-bar {
-  width: 0%;
+.loading__container-bar {
+  width: 0;
   height: 100%;
   background: white;
   transition: width 0.25s ease-in;
