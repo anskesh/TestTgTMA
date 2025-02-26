@@ -1,22 +1,18 @@
+﻿@using tgtrends_front.Data
 <div class="message">
     <div class="message__image">
-        <img src="images/test.jpg" class="image image__background"/>
-        <img src="images/test.jpg" class="image image--contain"/>
+        <img src="@MessageData.ImgUrl" class="image image__background"/>
+        <img src="@MessageData.ImgUrl" class="image image--contain"/>
         <div class="image image__shadow"></div>
         <div class="image image__text-opened is-hidden"></div>
     </div>
     <div class="message__info">
         <div class="message__info-text">
-            <div class="text-scroll">
+            <div class="text-scroll" @onclick="OnMessageTextClicked">
                 <svg width="24" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.00572 0.199708C8.25804 0.199708 8.51037 0.281371 8.68242 0.454823L15.7247 6.76094C15.8967 6.914 16 7.11808 16 7.35277C16 7.83236 15.5985 8.19971 15.0594 8.19971C14.8071 8.19971 14.5548 8.09767 14.3827 7.95481L7.46665 1.78137H8.53331L1.6172 7.95481C1.44516 8.09767 1.21576 8.19971 0.951968 8.19971C0.412902 8.19971 0 7.83236 0 7.35277C0 7.11808 0.103226 6.914 0.275269 6.76094L7.32901 0.454823C7.51253 0.281371 7.74192 0.199708 8.00572 0.199708Z" fill="white" fill-opacity="0.85" />
                 </svg>
-                <p>В Кирове цыганка наебала фармацевта на 5 тысяч прямо в аптеке.
-                    Купив лекарства, 
-                    она внезапно заявила, что на девушке порча, и попросила для доказательства написать текст и посыпать его пылью. 
-Пока фармацевт отвлеклась, «ведьма» начертила мылом крест. Пыль насыпали — крест проявился! За снятие порчи пришлось отвалить 5000 рублей. 
-Цыганка исчезла, а фармацевт потом увидела запись с камер, где магия раскрылась.
-                </p>
+                <p>@MessageData.Text</p>
             </div>
             <div class="message__info-statistics">
                 <button class="button">
@@ -35,10 +31,10 @@
         </div>
         <div class="message__info-channel channel">
             <div class="channel__info">
-                <img src="images/test.jpg"/>
+                <img src="@ChannelData.ImgUrl"/>
                 <div class="channel__info-text">
-                    <span class="channel-name">Топор 18+ Топор 18+ Топор 18+ Топор 18+</span>
-                    <span class="channel-last-time">20 hours ago</span>
+                    <span class="channel-name">@ChannelData.Name</span>
+                    <span class="channel-last-time">@ChannelData.LastPostDate</span>
                 </div>
             </div>
             <button class="button button--blurred channel__goto-link">
@@ -52,3 +48,19 @@
         </div>
     </div>
 </div>
+
+@code
+{
+    [Parameter] 
+    public MessageData MessageData { get; set; } = new();
+    
+    [Parameter]
+    public ChannelData ChannelData { get; set; } = new();
+    
+    private bool _textIsOpened { get; set; }
+
+    private void OnMessageTextClicked()
+    {
+        Console.WriteLine("Test");
+    }
+}
