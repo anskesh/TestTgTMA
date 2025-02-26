@@ -63,9 +63,15 @@
   height: 6.25rem;
   max-height: 80%;
   margin-right: 1rem;
+  transition: height 0.15s ease-in;
+}
+.text-scroll--height {
+  height: 80% !important;
+  transition: height 0.4s linear !important;
 }
 .text-scroll svg {
   margin-bottom: 0.5rem;
+  transition: transform 0.1s ease;
 }
 .text-scroll p {
   margin: 0;
@@ -75,6 +81,10 @@
   width: 100%;
   font-size: 0.9375rem;
   line-height: 130%;
+}
+
+.svg--rotate {
+  transform: scaleY(-1);
 }
 
 .message__info-statistics {
