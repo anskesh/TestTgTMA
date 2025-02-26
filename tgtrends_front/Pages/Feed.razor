@@ -1,11 +1,15 @@
-﻿@page "/"
-@using tgtrends_front.Data
+﻿@using tgtrends_front.Data
 @using tgtrends_front.Pages.Components
 @using tgtrends_front.Services
 
 @inject ChannelsService ChannelsService
 
-<link href="styles/feed.css" rel="stylesheet" />
+@page "/"
+@page "/feed"
+
+<HeadContent>
+    <link href="styles/feed.css" rel="stylesheet" />
+</HeadContent>
 
 <div class="header">
     <div class="header__dropdown">
@@ -34,7 +38,7 @@
 </div>
 <div class="image image__shadow-top"></div>
 <div class="slider">
-    @foreach (var message in Messages)
+    @foreach (var message in _messages)
     {
         <Message MessageData="message"></Message>
     }
@@ -42,18 +46,19 @@
 
 @code
 {
-    public List<MessageData> Messages { get; private set; } = new();
+    private List<MessageData> _messages = new();
     
-    protected override Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         ChannelsService.OnMessagesUpdated += UpdateMessages;
+        UpdateMessages();
         
-        return base.OnInitializedAsync();
+        base.OnInitialized();
     }
 
     private void UpdateMessages()
     {
-        Messages = ChannelsService.Messages;
+        _messages = ChannelsService.Messages;
         StateHasChanged();
     }
 }

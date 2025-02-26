@@ -21,6 +21,7 @@
       <None Include="wwwroot\styles\feed.css" />
       <None Include="wwwroot\styles\feed.css.map" />
       <None Include="wwwroot\styles\feed.scss" />
+      <None Include="wwwroot\styles\not-found.scss" />
     </ItemGroup>
 
     <ItemGroup>
@@ -30,6 +31,9 @@
     <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
+      </Content>
+      <Content Update="Pages\NotFoundPage.razor.css">
+        <DependentUpon>NotFoundPage.razor.scss</DependentUpon>
       </Content>
     </ItemGroup>
 
