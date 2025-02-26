@@ -32,10 +32,11 @@
         </button>
     </div>
 </div>
+<div class="image image__shadow-top"></div>
 <div class="slider">
     @foreach (var message in Messages)
     {
-        <Message MessageData="message" ChannelData="message.ChannelData"></Message>
+        <Message MessageData="message"></Message>
     }
 </div>
 

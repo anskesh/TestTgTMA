@@ -20,29 +20,33 @@
     </div>
     
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
+        <h1>Oops!</h1>
+        <div class="blazor-error-ui__description">
+            Something went wrong. Please
+            <a href="" class="reload">try again</a>!
+        </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            let loading = document.getElementById("loading");
+            
             function updateProgress() {
                 const percentage = parseFloat(getComputedStyle(document.documentElement)
                     .getPropertyValue('--blazor-load-percentage')
                     .replace('%', '') || 0);
 
-                console.log(percentage)
+                console.log(getComputedStyle(document.documentElement)
+                    .getPropertyValue('--blazor-load-percentage'))
                 document.querySelector('.loading__container-bar').style.width = percentage + "%";
 
                 if (percentage >= 100) {
                     setTimeout(() => {
-                        document.getElementById("loading").style.opacity = "0";
-                        document.getElementById("app").style.display = "block";
+                        loading.style.opacity = "0";
                         setTimeout(() => {
-                            document.getElementById("loading").style.display = "none";
-                        }, 200);
-                    }, 500);
+                            loading.style.display = "none";
+                        }, 550);
+                    }, 800);
                 } else {
                     requestAnimationFrame(updateProgress);
                 }

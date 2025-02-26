@@ -51,12 +51,10 @@
 
 @code
 {
-    [Parameter] 
+    [Parameter, EditorRequired] 
     public MessageData MessageData { get; set; } = new();
-    
-    [Parameter]
-    public ChannelData ChannelData { get; set; } = new();
-    
+
+    private ChannelData ChannelData => MessageData.ChannelData;
     private bool _textIsOpened { get; set; }
 
     private void OnMessageTextClicked()
