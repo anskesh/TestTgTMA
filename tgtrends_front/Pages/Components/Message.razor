@@ -67,12 +67,11 @@
         if (firstRender)
         {
             int height = await JS.InvokeAsync<int>("getElementHeight", _textElement);
-            Console.WriteLine(height);
             _textResizable = height > 76;
             StateHasChanged();
         }
         
-        base.OnAfterRenderAsync(firstRender);
+        await base.OnAfterRenderAsync(firstRender);
     }
 
     private void OnMessageTextClicked()

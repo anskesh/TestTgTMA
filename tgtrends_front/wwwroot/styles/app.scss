@@ -16,6 +16,9 @@
 
 body {
   background-color: var(--color-dark);
+  
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 #app {

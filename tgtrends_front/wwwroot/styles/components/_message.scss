@@ -104,14 +104,18 @@
 .message__info-statistics {
   display: flex;
   flex-direction: column;
-  padding-right: rem(6);
 
   .button {
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: rem(18);
+    padding: rem(8) rem(6);
+    
+    &:active {
+      border-radius: rem(10);
+      background: rgba(37, 37, 37, 0.55);
+    }
 
     span {
       margin-top: rem(8);

@@ -354,6 +354,8 @@ template {
 
 body {
   background-color: var(--color-dark);
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 #app {
@@ -384,6 +386,9 @@ body {
   background: linear-gradient(to bottom, rgba(37, 37, 37, 0.55), rgba(37, 37, 37, 0.55));
   border-radius: 31.25rem;
   z-index: -1;
+}
+.button--blurred:active::before {
+  background: linear-gradient(to bottom, rgba(37, 37, 37, 0.9), rgba(37, 37, 37, 0.9)) !important;
 }
 
 .is-hidden {
