@@ -21,11 +21,6 @@
   position: relative;
   width: 100%;
 }
-.message__image .image {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-}
 .message__image .image__background {
   filter: blur(1.875rem);
   object-fit: cover;
@@ -34,7 +29,7 @@
   object-fit: contain;
 }
 .message__image .image__shadow {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 2%, rgba(0, 0, 0, 0) 21%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 80%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 80%);
 }
 .message__image .image__text-opened {
   background: rgba(0, 0, 0, 0.6);
@@ -172,6 +167,18 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.image {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.image__shadow-top {
+  position: fixed;
+  z-index: -2;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 2%, rgba(0, 0, 0, 0) 21%);
 }
 
 .header__dropdown {

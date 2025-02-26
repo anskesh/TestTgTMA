@@ -24,12 +24,6 @@
   position: relative;
   width: 100%;
 
-  .image {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-  }
-
   .image__background {
     filter: blur(rem(30));
     object-fit: cover;
@@ -41,8 +35,6 @@
 
   .image__shadow {
     background: linear-gradient(180deg,
-            rgba(0, 0, 0, .8) 2%,
-            rgba(0, 0, 0, 0) 21%,
             rgba(0, 0, 0, 0) 60%,
             rgba(0, 0, 0, .8) 80%);
   }

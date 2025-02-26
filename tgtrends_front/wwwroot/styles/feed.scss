@@ -1,5 +1,5 @@
 ﻿@use "./helpers" as *;
-@import "./components/message";
+@forward "./components/message";
 
 .header {
   z-index: 1;
@@ -15,6 +15,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.image {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.image__shadow-top {
+  position: fixed;
+  z-index: -2;
+  background: linear-gradient(180deg,
+          rgba(0, 0, 0, .8) 2%,
+          rgba(0, 0, 0, 0) 21%);
 }
 
 .header__dropdown {
