@@ -59,7 +59,7 @@
 
     private ChannelData ChannelData => MessageData.ChannelData;
     private bool _textIsOpened;
-    private bool _textResizable = true;
+    private bool _textResizable;
     private ElementReference _textElement;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -67,7 +67,7 @@
         if (firstRender)
         {
             int height = await JsRuntime.InvokeAsync<int>("getElementHeight", _textElement);
-            _textResizable = (height > 76) & MessageData.ImgUrl != null;
+            _textResizable = (height > 100) && MessageData.ImgUrl != null;
             
             if (MessageData.ImgUrl == null)
                 _textIsOpened = true;
