@@ -1,28 +1,37 @@
-name: Deploy Blazor to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # Или другая ветка, которую используешь
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy-to-github-pages:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      # Checkout кода
+      - name: Checkout
         uses: actions/checkout@v3
 
+      # Установка .NET SDK
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0'
+          dotnet-version: '8.0' # Укажите вашу версию .NET
 
-      - name: Publish Blazor WebAssembly
-        run: dotnet publish -c Release -o release
+      # Публикация приложения
+      - name: Publish Blazor App
+        run: dotnet publish tgtrends_front.csproj -c Release -o ./publish
 
-      - name: Deploy to GitHub Pages
+      # Копирование файлов в папку для GitHub Pages
+      - name: Prepare GitHub Pages
+        run: |
+          mkdir -p ./gh-pages
+          cp -r ./publish/wwwroot/* ./gh-pages/
+          echo "" > ./gh-pages/.nojekyll # Отключает Jekyll для папок с подчёркиванием (_framework)
+
+      # Развёртывание на gh-pages
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: release/wwwroot
+          folder: gh-pages
