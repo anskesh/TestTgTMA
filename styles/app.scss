@@ -1,0 +1,137 @@
+﻿@use "normalize";
+@use "fonts";
+@use "variables";
+@use "helpers" as *;
+
+* {
+  font-family: "Sf Pro", sans-serif;
+  color: var(--color-light);
+  letter-spacing: rem(-0.04);
+
+  -webkit-user-select: none;  /* Chrome/Safari */
+  -moz-user-select: none;  /* Firefox */
+  -ms-user-select: none;  /* IE/Edge */
+  user-select: none;  /* Стандартный синтаксис */
+}
+
+body {
+  background-color: var(--color-dark);
+  
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: rem(500);
+
+  &--blurred {
+    @include blurred-background;
+  }
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-visible {
+  display: block;
+}
+
+.valid.modified:not([type=checkbox]) {
+  outline: 1px solid #26b050;
+}
+
+.invalid {
+  outline: 1px solid red;
+}
+
+.validation-message {
+  color: red;
+}
+
+#blazor-error-ui {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  z-index: 1000;
+  
+  background-color: var(--color-blue);
+}
+
+.blazor-error-ui__container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    margin: 0;
+    margin-bottom: rem(12);
+  }
+}
+
+.blazor-error-ui__description {
+  display: flex;
+  flex-direction: row;
+}
+
+code {
+  color: #c02d76;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 15%;
+  box-sizing: border-box;
+  
+  z-index: 100;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-blue);
+  transition: opacity 0.8s linear;
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+.loading__container {
+  width: 75%;
+  height: rem(16);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.loading__container-bar {
+  width: 0;
+  height: 100%;
+  background: white;
+  transition: width 0.5s linear;
+}

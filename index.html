@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TgTrends</title>
+    <base href="/" />
+    <link rel="stylesheet" href="styles/app.css" />
+</head>
+
+<body>
+    <div id="app"></div>
+    
+    <div id="loading">
+        <h1>Telegram Trends</h1>
+        <div class="loading__container">
+            <div class="loading__container-bar"></div>
+        </div>
+    </div>
+    
+    <div id="blazor-error-ui">
+        <div class="blazor-error-ui__container">
+            <h1>Oops!</h1>
+            <div class="blazor-error-ui__description">
+                <span>Something went wrong. Please <a href="" class="reload">try again</a>!</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let loading = document.getElementById("loading");
+            
+            function updateProgress() {
+                const percentage = parseFloat(getComputedStyle(document.documentElement)
+                    .getPropertyValue('--blazor-load-percentage')
+                    .replace('%', '') || 0);
+
+                console.log(getComputedStyle(document.documentElement)
+                    .getPropertyValue('--blazor-load-percentage'))
+                document.querySelector('.loading__container-bar').style.width = percentage + "%";
+
+                if (percentage >= 100) {
+                    setTimeout(() => {
+                        loading.style.opacity = "0";
+                        setTimeout(() => {
+                            loading.style.display = "none";
+                        }, 550);
+                    }, 800);
+                } else {
+                    requestAnimationFrame(updateProgress);
+                }
+            }
+
+            updateProgress();
+        });
+    </script>
+
+    <script src="js/helpers.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>
