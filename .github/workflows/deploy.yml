@@ -20,7 +20,7 @@ jobs:
 
       # Публикация приложения
       - name: Publish Blazor App
-        run: dotnet publish tgtrends_front.csproj -c Release -o ./publish
+        run: dotnet publish tgtrends_front/tgtrends_front.csproj -c Release -o ./publish
 
       # Копирование файлов в папку для GitHub Pages
       - name: Prepare GitHub Pages
