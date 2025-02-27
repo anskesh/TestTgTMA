@@ -41,14 +41,7 @@
                     .getPropertyValue('--blazor-load-percentage'))
                 document.querySelector('.loading__container-bar').style.width = percentage + "%";
 
-                if (percentage >= 100) {
-                    setTimeout(() => {
-                        loading.style.opacity = "0";
-                        setTimeout(() => {
-                            loading.style.display = "none";
-                        }, 550);
-                    }, 800);
-                } else {
+                if (percentage < 100) {
                     requestAnimationFrame(updateProgress);
                 }
             }

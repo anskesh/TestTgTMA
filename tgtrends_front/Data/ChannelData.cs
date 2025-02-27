@@ -9,7 +9,7 @@ public class ChannelData
     public string Name { get; private set; }
     public string ImgUrl { get; private set; }
     public string LastPostDate { get; private set; }
-
+    
     public ChannelData()
     {
         Name = "Топор 18+";

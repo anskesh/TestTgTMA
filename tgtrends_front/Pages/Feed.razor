@@ -3,6 +3,7 @@
 @using tgtrends_front.Services
 
 @inject ChannelsService ChannelsService
+@inject IJSRuntime JsRuntime
 
 @page "/"
 @page "/feed"
@@ -47,18 +48,38 @@
 @code
 {
     private List<MessageData> _messages = new();
+    private int _currentIndex = 0;
     
     protected override void OnInitialized()
     {
         ChannelsService.OnMessagesUpdated += UpdateMessages;
         UpdateMessages();
-        
-        base.OnInitialized();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsRuntime.InvokeVoidAsync("scrollHandler.init", "slider", "message", DotNetObjectReference.Create(this));
+        }
+    }
+
+    [JSInvokable(nameof(OnScrollIndexChanged))]
+    public async Task OnScrollIndexChanged(int index)
+    {
+        _currentIndex = index;
+        Console.WriteLine(_currentIndex);
+        ChannelsService.LoadMoreMessages(index);
     }
 
     private void UpdateMessages()
     {
         _messages = ChannelsService.Messages;
         StateHasChanged();
+
+        if (ChannelsService.MessagesPreloaded)
+        {
+            JsRuntime.InvokeVoidAsync("messagesPreloaded");
+        }
     }
 }
