@@ -8,7 +8,7 @@
 }
 
 window.getElementHeight = (element) => {
-    return element ? element.offsetHeight : 0;
+    return element ? element.scrollHeight : 0;
 }
 
 window.scrollHandler = {
