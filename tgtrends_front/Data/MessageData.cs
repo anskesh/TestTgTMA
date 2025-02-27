@@ -7,7 +7,7 @@ public class MessageData
     public long ID { get; private set; }
 
     public string Text { get; private set; }
-    public string ImgUrl { get; private set; }
+    public string? ImgUrl { get; private set; }
     public int LikesCount { get; private set; }
     public int CommentsCount { get; private set; }
     
@@ -21,10 +21,11 @@ public class MessageData
         CommentsCount = 933;
     }
 
-    public MessageData(ChannelMessageDto message, string image, ChannelData channel)
+    public MessageData(ChannelMessageDto message, string? image, ChannelData channel)
     {
         ID = message.MessageID;
         Text = message.Message;
+
         ImgUrl = image;
         ChannelData = channel;
     }

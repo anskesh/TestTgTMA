@@ -63,7 +63,7 @@
   height: 6.25rem;
   max-height: 80%;
   margin-right: 1rem;
-  transition: height 0.15s ease-in;
+  transition: height 0.2s ease-in;
 }
 .text-scroll--height {
   height: 80% !important;
@@ -71,6 +71,7 @@
 }
 .text-scroll svg {
   margin-bottom: 0.5rem;
+  min-height: 0.875rem;
   transition: transform 0.1s ease;
 }
 .text-scroll p {

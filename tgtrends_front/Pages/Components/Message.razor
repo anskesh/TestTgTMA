@@ -1,10 +1,10 @@
 ﻿@using tgtrends_front.Data
 
-@inject IJSRuntime JS
+@inject IJSRuntime JsRuntime
 
 <div class="message">
     <div class="message__image">
-        <img src="@MessageData.ImgUrl" class="image image__background"/>
+        <img src="@(MessageData.ImgUrl ?? ChannelData.ImgUrl)" class="image image__background"/>
         <img src="@MessageData.ImgUrl" class="image image--contain"/>
         <div class="image image__shadow"></div>
         <div class="image image__text-opened @(!_textIsOpened ? "is-hidden" : "")"></div>
@@ -66,8 +66,12 @@
     {
         if (firstRender)
         {
-            int height = await JS.InvokeAsync<int>("getElementHeight", _textElement);
-            _textResizable = height > 76;
+            int height = await JsRuntime.InvokeAsync<int>("getElementHeight", _textElement);
+            _textResizable = (height > 76) & MessageData.ImgUrl != null;
+            
+            if (MessageData.ImgUrl == null)
+                _textIsOpened = true;
+            
             StateHasChanged();
         }
         

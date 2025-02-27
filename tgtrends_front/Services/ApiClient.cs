@@ -26,10 +26,18 @@ public class ApiClient
         return await GetAsync<TgChannelDto>(url);
     }
 
-    public async Task<byte[]> GetChannelImageAsync(long channelId)
+    public async Task<byte[]?> GetChannelImageAsync(long channelId)
     {
         string url = $"{BaseUrl}/channels/{channelId}/image";
-        return await _httpClient.GetByteArrayAsync(url);
+        try
+        {
+            return await _httpClient.GetByteArrayAsync(url);
+        }
+        catch (HttpRequestException e)
+        {
+            Console.WriteLine($"{e.StatusCode} error while loading channel image.");
+            return null;
+        }
     }
 
     public async Task<List<ChannelMessageDto>> GetChannelMessagesAsync(long channelId = 1343028414)
@@ -38,10 +46,18 @@ public class ApiClient
         return await GetAsync<List<ChannelMessageDto>>(url);
     }
 
-    public async Task<byte[]> GetMessageImageAsync(long channelId, long messageId)
+    public async Task<byte[]?> GetMessageImageAsync(long channelId, long messageId)
     {
         string url = $"{BaseUrl}/messages/{messageId}/channel/{channelId}/image";
-        return await _httpClient.GetByteArrayAsync(url);
+        try
+        {
+            return await _httpClient.GetByteArrayAsync(url);
+        }
+        catch (HttpRequestException e)
+        {
+            Console.WriteLine($"{e.StatusCode} error while loading message image.");
+            return null;
+        }
     }
 
     public async Task<List<TgChannelDto>> GetAllChannelsAsync()
