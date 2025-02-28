@@ -4,6 +4,7 @@
 
 @inject ChannelsService ChannelsService
 @inject IJSRuntime JsRuntime
+@inject TelegramService TelegramService
 
 @page "/"
 @page "/feed"
@@ -12,7 +13,7 @@
     <link href="styles/feed.css" rel="stylesheet" />
 </HeadContent>
 
-<div class="header">
+<div class="header @(TelegramService.IsMobile ? "header--mobile-margin" : "")">
     <div class="header__dropdown">
         <button class="button">For You</button>
         <svg width="24" height="13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,6 +62,7 @@
         if (firstRender)
         {
             await JsRuntime.InvokeVoidAsync("scrollHandler.init", "slider", "message", DotNetObjectReference.Create(this));
+            await JsRuntime.InvokeVoidAsync("customScroll.init", "slider", 0.6);
         }
     }
 
