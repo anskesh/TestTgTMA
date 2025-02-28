@@ -1,6 +1,8 @@
 ﻿@using tgtrends_front.Data
+@using tgtrends_front.Services
 
 @inject IJSRuntime JsRuntime
+@inject TelegramService TelegramService
 
 <div class="message">
     <div class="message__image">
@@ -9,7 +11,7 @@
         <div class="image image__shadow"></div>
         <div class="image image__text-opened @(!_textIsOpened ? "is-hidden" : "")"></div>
     </div>
-    <div class="message__info">
+    <div class="message__info @(TelegramService.IsMobile ? "message__info--mobile-padding" : "")">
         <div class="message__info-text">
             <div class="text-scroll @(_textIsOpened ? "text-scroll--height" : "")" @onclick="OnMessageTextClicked">
                 <svg class="@(_textIsOpened ? "svg--rotate" : "") @(!_textResizable ? "is-hidden" : "")" width="24" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -87,6 +89,6 @@
 
     private async Task GoToPostClick()
     {
-        await JsRuntime.InvokeVoidAsync("openTelegramLink", ChannelData.ID, MessageData.ID);
+        await TelegramService.GoToPostLink(ChannelData.ID, MessageData.ID);
     }
 }

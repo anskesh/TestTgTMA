@@ -15,6 +15,10 @@ function tryResizeView (){
     }
 }
 
+window.getTelegramPlatform = function () {
+    return tg?.platfrom;
+}
+
 window.openTelegramLink = function (channelId, messageId){
     let url = `https://t.me/c/${channelId}/${messageId}`;
     tg?.openTelegramLink(url);

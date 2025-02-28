@@ -11,5 +11,6 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddScoped<ApiClient>();
 builder.Services.AddScoped<ChannelsService>();
+builder.Services.AddScoped<TelegramService>();
 
 await builder.Build().RunAsync();

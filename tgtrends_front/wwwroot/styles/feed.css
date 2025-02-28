@@ -44,6 +44,9 @@
   flex-direction: column;
   justify-content: flex-end;
 }
+.message__info--mobile-padding {
+  padding-top: var(--mobile-top)2.375rem;
+}
 
 .message__info-text {
   display: flex;
@@ -183,6 +186,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.header--mobile-margin {
+  margin-top: 5.125rem;
 }
 
 .image {

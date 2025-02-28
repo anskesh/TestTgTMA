@@ -76,7 +76,6 @@ public class ChannelsService
         foreach (var message in channelMessages)
         {
             bool alreadyAdded = _messages.Any(x => x.ID == message.MessageID) && _loadingMessagesIds.Contains(message.MessageID);
-            Console.WriteLine($"Adding message {alreadyAdded}");
             
             if (!alreadyAdded)
             {
