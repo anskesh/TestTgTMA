@@ -144,6 +144,8 @@
     display: flex;
     flex-direction: row;
     width: rem(181);
+    flex-grow: 1;
+    max-width: 50%;
 
     img {
       width: rem(38);
@@ -156,6 +158,7 @@
       display: flex;
       flex-direction: column;
       width: rem(90);
+      flex-grow: 1;
 
       .channel-name {
         font-weight: 700;
