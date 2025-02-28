@@ -47,7 +47,7 @@
   justify-content: flex-end;
 }
 .message__info--mobile-padding {
-  padding-top: var(--mobile-top)2.375rem;
+  padding-top: 7.5rem;
 }
 
 .message__info-text {
