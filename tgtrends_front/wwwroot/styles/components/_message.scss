@@ -74,17 +74,17 @@
   height: rem(100);
   max-height: 93%;
   margin-right: rem(16);
-  transition: height 0.2s ease-in;
+  transition: height 0.2s ease;
   
   &--height {
-    height: 100% !important;
-    transition: height 0.4s linear !important;
+    height: 100%;
+    transition: height 0.4s ease-out;
   }
   
   svg {
     margin-bottom: rem(8);
     min-height: rem(14);
-    transition: transform 0.1s ease;
+    transition: transform 0.2s linear;
   }
 
   p {
