@@ -13,13 +13,13 @@ window.getElementHeight = (element) => {
 
 window.scrollHandler = {
     init: function (sliderSelector, messageSelector, dotNetHelper) {
-        const slider = document.querySelector("." + sliderSelector);
+        const slider = document.querySelector(sliderSelector);
         if (!slider) return;
         
         let lastIndex = -1;
         
         slider.addEventListener('scroll', function (event) {
-            const messages = slider.querySelectorAll("." + messageSelector);
+            const messages = slider.querySelectorAll(messageSelector);
             const sliderHeight = slider.clientHeight;
             
             messages.forEach((message, index) => {
@@ -34,24 +34,3 @@ window.scrollHandler = {
         })
     }
 }
-
-window.customScroll = {
-    init: function (elementId, sensitivity) {
-        const slider = document.getElementById(elementId);
-        if (!slider) return;
-
-        let startY = 0;
-        let scrollTop = 0;
-
-        slider.addEventListener('touchstart', (e) => {
-            startY = e.touches[0].clientY;
-            scrollTop = slider.scrollTop;
-        });
-
-        slider.addEventListener('touchmove', (e) => {
-            const deltaY = (e.touches[0].clientY - startY) * sensitivity;
-            slider.scrollTop = scrollTop - deltaY;
-            e.preventDefault();
-        });
-    }
-};

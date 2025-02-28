@@ -6,10 +6,10 @@ public class TelegramService
 {
     public bool IsMobile => _platform == "android" || _platform == "ios";
     
-    private readonly JSRuntime _jsRuntime;
+    private readonly IJSRuntime _jsRuntime;
     private string _platform;
 
-    public TelegramService(JSRuntime jSRuntime)
+    public TelegramService(IJSRuntime jSRuntime)
     {
         _jsRuntime = jSRuntime;
         GetTelegramPlatform();
