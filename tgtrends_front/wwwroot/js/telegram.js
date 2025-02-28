@@ -16,7 +16,7 @@ function tryResizeView (){
 }
 
 window.getTelegramPlatform = function () {
-    return tg?.platfrom;
+    return tg ? tg.platform : "notfound";
 }
 
 window.openTelegramLink = function (channelId, messageId){
