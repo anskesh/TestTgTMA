@@ -1,3 +1,13 @@
-﻿@inherits LayoutComponentBase
+﻿@using tgtrends_front.Services
+@inherits LayoutComponentBase
+@inject TelegramService TelegramService
 
 @Body
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        await TelegramService.InitializeAsync();
+    }
+}

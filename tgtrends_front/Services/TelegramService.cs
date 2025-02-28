@@ -12,14 +12,19 @@ public class TelegramService
     public TelegramService(IJSRuntime jSRuntime)
     {
         _jsRuntime = jSRuntime;
-        GetTelegramPlatform();
+    }
+
+    public async Task InitializeAsync()
+    {
+        await GetTelegramPlatform();
     }
 
     private async Task GetTelegramPlatform()
     {
         _platform = await _jsRuntime.InvokeAsync<string>("getTelegramPlatform");
+        Console.WriteLine($"Platform: {_platform}");
     }
-    
+
     public async Task GoToPostLink(long channelId, long messageId)
     {
         await _jsRuntime.InvokeVoidAsync("openTelegramLink", channelId, messageId);
