@@ -8,13 +8,17 @@
   height: rem(38);
   top: 0;
   padding: 0 rem(12) 0 rem(12);
-  margin-top: rem(45);
+  margin-top: $desktop-top;
   box-sizing: border-box;
   
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  &--mobile-margin {
+    margin-top: $mobile-top;
+  }
 }
 
 .image {

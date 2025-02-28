@@ -34,3 +34,24 @@ window.scrollHandler = {
         })
     }
 }
+
+window.customScroll = {
+    init: function (elementId, sensitivity) {
+        const slider = document.getElementById(elementId);
+        if (!slider) return;
+
+        let startY = 0;
+        let scrollTop = 0;
+
+        slider.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+            scrollTop = slider.scrollTop;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            const deltaY = (e.touches[0].clientY - startY) * sensitivity;
+            slider.scrollTop = scrollTop - deltaY;
+            e.preventDefault();
+        });
+    }
+};

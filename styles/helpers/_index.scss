@@ -1,2 +1,7 @@
 ﻿@forward "functions";
 @forward "mixins";
+
+@use "functions" as *;
+
+$desktop-top: rem(45);
+$mobile-top: rem(82);

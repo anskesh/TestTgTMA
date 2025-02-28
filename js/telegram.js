@@ -1,16 +1,25 @@
-﻿let telegram = window.Telegram.WebApp;
-console.log(telegram);
+﻿let tg = window.Telegram.WebApp;
+tryResizeView();
 
-/*
-window.TelegramHelper = {
-    tg: null,
-    
-    initTelegram: function(){
-        if (window.Telegram && window.Telegram.WebApp){
-            this.tg = window.Telegram.WebApp;
-            return true;
-        }
+function tryResizeView (){
+    if (tg !== null) {
+        if (tg.version < "8.0")
+            return;
         
-        return false;
+        if (tg.platform == "android" || tg.platform == "ios") {
+            tg.requestFullscreen();
+        }
+        else {
+            tg.exitFullscreen();
+        }
     }
-}*/
+}
+
+window.getTelegramPlatform = function () {
+    return tg?.platfrom;
+}
+
+window.openTelegramLink = function (channelId, messageId){
+    let url = `https://t.me/c/${channelId}/${messageId}`;
+    tg?.openTelegramLink(url);
+}
