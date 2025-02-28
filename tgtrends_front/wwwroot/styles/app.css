@@ -356,6 +356,9 @@ body {
   background-color: var(--color-dark);
   -ms-overflow-x: hidden;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  touch-action: manipulation;
 }
 
 #app {
