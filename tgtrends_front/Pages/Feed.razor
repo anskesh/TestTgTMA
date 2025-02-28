@@ -62,6 +62,7 @@
         if (firstRender)
         {
             await JsRuntime.InvokeVoidAsync("scrollHandler.init", "slider", "message", DotNetObjectReference.Create(this));
+            await JsRuntime.InvokeVoidAsync("customScroll.init", "slider", 0.6);
         }
     }
 
