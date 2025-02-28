@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "tgtrends_front",
   "resources": {
-    "hash": "sha256-vQqf5iTppXg0gak3o4nRfE7ermWvv2qlaBlD+DsOh8w=",
+    "hash": "sha256-H7G5+skf24Hf6H+KLGebsyrcDrndLiiuYsffxKk32jw=",
     "jsModuleNative": {
       "dotnet.native.8.0.13.f1wj86lvfk.js": "sha256-xNQsYHtL1vcbrVTHDZAwJM4WovpoyjsrM2C6FQ8cW1w="
     },
@@ -44,12 +44,12 @@
       "System.Private.CoreLib.wasm": "sha256-1Zb9w1dIPG1kfk7Gmjl9QGR0UrqQD11Y+Ij6rAOfPSs=",
       "System.Private.Uri.wasm": "sha256-/ykDVO8mofi5FClhHNwlImx+sBoHu7GpT+dT0jIdo5w=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-oW2c7nXVxA0o/sqU/Cv3x11SbRiwcxWnGnnCOaRkZrE=",
-      "System.Runtime.wasm": "sha256-6jus7nGwgWrKuv5hHYTc0MOz2bj0+YWl8QFRpm1gwj4=",
+      "System.Runtime.wasm": "sha256-Kup/B4/13gwKrj0ysaAmdcIaHYRJtl387duCTbac/CU=",
       "System.Text.Encodings.Web.wasm": "sha256-6URfVB7NbdkQ/E6UMKjkdn5lNGBCKhisW0LpVUmWLME=",
       "System.Text.Json.wasm": "sha256-neT6RHgtIR8jy6WJ/apHUElGgD1NqfUIaYJoF18T4jU=",
       "System.Text.RegularExpressions.wasm": "sha256-AGgpeUcZlu30alJ+FMFQvv4lDT6lT9EcfLrxzigrebk=",
       "System.Threading.wasm": "sha256-zuPGNqDDl08yT91TmYh8L0zuSD/NyQEXfT/kQffUqTM=",
-      "tgtrends_front.wasm": "sha256-5dDxOhPHPclS4VAgJhV01bIpaC8zQH8kw6QCFUG9KwI="
+      "tgtrends_front.wasm": "sha256-641m5aafiE4ROuxt+86p7Py6u8GRay7zDX6ZYN8Xqzs="
     }
   },
   "cacheBootResources": true,
