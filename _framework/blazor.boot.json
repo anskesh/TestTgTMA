@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "tgtrends_front",
   "resources": {
-    "hash": "sha256-SXTY18yfL/nUQaqQvjVj+538eFUcL3dN0lV1By+VYKk=",
+    "hash": "sha256-o0XwrwM2+yCj9LEGkiXVI6KiF5MzILiCWwgFGKeHwls=",
     "jsModuleNative": {
       "dotnet.native.8.0.13.f1wj86lvfk.js": "sha256-xNQsYHtL1vcbrVTHDZAwJM4WovpoyjsrM2C6FQ8cW1w="
     },
@@ -49,7 +49,7 @@
       "System.Text.Json.wasm": "sha256-neT6RHgtIR8jy6WJ/apHUElGgD1NqfUIaYJoF18T4jU=",
       "System.Text.RegularExpressions.wasm": "sha256-AGgpeUcZlu30alJ+FMFQvv4lDT6lT9EcfLrxzigrebk=",
       "System.Threading.wasm": "sha256-zuPGNqDDl08yT91TmYh8L0zuSD/NyQEXfT/kQffUqTM=",
-      "tgtrends_front.wasm": "sha256-Nnyc+0PADnRxtS/CPc6QzyYyZU/yDHlOWcPQMnClQ1M="
+      "tgtrends_front.wasm": "sha256-BiuXEk2GZMO0TgxqAQakTo+XkxhDa3mgr5AB74Rj1es="
     }
   },
   "cacheBootResources": true,
