@@ -337,7 +337,7 @@ template {
   --color-dark: #000000;
   --color-gray: rgba(255, 255, 255, 0.8);
   --color-red: #FFFFFF;
-  --color-blue: #0088cc;
+  --color-blue: #01B2FE;
   --top-custom-padding: 8;
   --bottom-custom-padding: 16;
   --font-family-base: "SF Pro", sans-serif;
@@ -466,8 +466,8 @@ code {
   transition: opacity 0.8s linear;
 }
 #loading h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 2.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .loading__container {
@@ -476,7 +476,7 @@ code {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .loading__container-bar {

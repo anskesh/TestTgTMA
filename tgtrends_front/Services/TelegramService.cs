@@ -25,8 +25,14 @@ public class TelegramService
         Console.WriteLine($"Platform: {_platform}");
     }
 
-    public async Task GoToPostLink(long channelId, long messageId)
+    public async Task GoToTelegramLink(string url)
     {
-        await _jsRuntime.InvokeVoidAsync("openTelegramLink", channelId, messageId);
+        await GoToLink($"https://t.me/c/{url}/");
+    }
+
+    public async Task GoToLink(string url)
+    {
+        Console.WriteLine($"Going to link: {url}");
+        await _jsRuntime.InvokeVoidAsync("openTelegramLink", url);
     }
 }
