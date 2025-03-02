@@ -35,10 +35,13 @@ function applySafeArea(){
     if (tg.isFullscreen)
         top_padding += top_content_inset_padding;
     
-    if (top_padding == top_custom_padding)
+    if (top_padding === top_custom_padding)
         top_padding += top_custom_padding;
    
-    let bottom_padding = bottom_custom_padding + bottom_safe_area_padding;
+    let bottom_padding = bottom_safe_area_padding;
+    
+    if (bottom_padding === 0)
+        bottom_padding += bottom_custom_padding;
 
     setProperty("--top-safe-area", rem(top_padding));
     setProperty("--bottom-safe-area", rem(bottom_padding));
