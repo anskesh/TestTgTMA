@@ -1,6 +1,11 @@
 ﻿let tg = window.Telegram.WebApp;
 
 tryResizeView();
+
+tg.onEvent("viewportChanged", applySafeArea);
+tg.onEvent("safeAreaChanged", applySafeArea);
+tg.onEvent("contentSafeAreaChanged ", applySafeArea);
+
 applySafeArea();
 
 function tryResizeView (){
