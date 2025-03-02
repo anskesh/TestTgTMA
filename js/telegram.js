@@ -24,7 +24,7 @@ function tryResizeView (){
 
 function applySafeArea(){
     const top_safe_area_padding = parseFloat(getProperty("--tg-safe-area-inset-top")) || 0;
-    const content_inset_padding = parseFloat(getProperty("--tg-content-safe-area-inset-top")) || 0;
+    const top_content_inset_padding = parseFloat(getProperty("--tg-content-safe-area-inset-top")) || 0;
     const top_custom_padding = parseFloat(getProperty("--top-custom-padding")) || 0;
 
     const bottom_safe_area_padding = parseFloat(getProperty("--tg-safe-area-inset-bottom")) || 0;
@@ -33,15 +33,15 @@ function applySafeArea(){
     let top_padding = top_custom_padding + top_safe_area_padding;
 
     if (tg.isFullscreen)
-        top_padding += content_inset_padding;
+        top_padding += top_content_inset_padding;
     
     if (top_padding == top_custom_padding)
         top_padding += top_custom_padding;
    
     let bottom_padding = bottom_custom_padding + bottom_safe_area_padding;
 
-    setProperty("--top-safe-area", rem(bottom_padding));
-    setProperty("--bottom-safe-area", rem(top_padding));
+    setProperty("--top-safe-area", rem(top_padding));
+    setProperty("--bottom-safe-area", rem(bottom_padding));
 }
 
 window.getTelegramPlatform = function () {
