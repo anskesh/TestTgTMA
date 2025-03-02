@@ -1,12 +1,8 @@
 ﻿let tg = window.Telegram.WebApp;
-
 tryResizeView();
 
-tg.onEvent("viewportChanged", applySafeArea);
 tg.onEvent("safeAreaChanged", applySafeArea);
 tg.onEvent("contentSafeAreaChanged ", applySafeArea);
-
-applySafeArea();
 
 function tryResizeView (){
     if (tg !== null) {
@@ -51,7 +47,6 @@ window.getTelegramPlatform = function () {
     return tg ? tg.platform : "notfound";
 }
 
-window.openTelegramLink = function (channelId, messageId){
-    let url = `https://t.me/c/${channelId}/${messageId}`;
+window.openTelegramLink = function (url){
     tg?.openTelegramLink(url);
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Trends</title>
+    <title>TRENDS</title>
     <base href="/" />
     <link rel="stylesheet" href="styles/app.css" />
 </head>
@@ -13,7 +13,7 @@
     <div id="app"></div>
     
     <div id="loading">
-        <h1>Trends</h1>
+        <h1>TRENDS</h1>
         <div class="loading__container">
             <div class="loading__container-bar"></div>
         </div>
@@ -31,6 +31,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             tg.ready();
+            applySafeArea();
             
             function updateProgress() {
                 const percentage = parseFloat(getComputedStyle(document.documentElement)

@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="message__info-channel channel">
-            <div class="channel__info">
+            <div class="channel__info" @onclick="GoToChannelClick">
                 <img src="@ChannelData.ImgUrl"/>
                 <div class="channel__info-text">
                     <span class="channel-name">@ChannelData.Name</span>
@@ -89,6 +89,11 @@
 
     private async Task GoToPostClick()
     {
-        await TelegramService.GoToPostLink(ChannelData.ID, MessageData.ID);
+        await TelegramService.GoToTelegramLink($"{ChannelData.ID}/{MessageData.ID}");
+    }
+
+    private async Task GoToChannelClick()
+    {
+        await TelegramService.GoToTelegramLink($"{ChannelData.ID}");
     }
 }

@@ -119,8 +119,8 @@ code {
   transition: opacity 0.8s linear;
 
   h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: rem(34);
+    margin-bottom: rem(20);
   }
 }
 
@@ -130,7 +130,7 @@ code {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: rem(10);
 }
 
 .loading__container-bar {
