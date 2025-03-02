@@ -18,28 +18,25 @@ function tryResizeView (){
 }
 
 function applySafeArea(){
-    let top_safe_property = "--top-safe-area";
-    let bottom_safe_property = "--bottom-safe-area";
+    const top_safe_area_padding = parseFloat(getProperty("--tg-safe-area-inset-top")) || 0;
+    const content_inset_padding = parseFloat(getProperty("--tg-content-safe-area-inset-top")) || 0;
+    const top_custom_padding = parseFloat(getProperty("--top-custom-padding")) || 0;
 
-    let top_padding_property = "--top-padding";
-    let top_fullSize_padding_property = "--top-fullsize-padding";
-    let bottom_padding_property = "--bottom-padding";
-
-    let safeArea = tg.safeAreaInset;
+    const bottom_safe_area_padding = parseFloat(getProperty("--tg-safe-area-inset-bottom")) || 0;
+    const bottom_custom_padding = parseFloat(getProperty("--bottom-custom-padding")) || 0;
     
-    let top_fullSize_padding = parseFloat(getProperty(top_fullSize_padding_property)) || 0;
-    let top_padding = parseFloat(getProperty(top_padding_property)) || 0;
-    let bottom_padding = parseFloat(getProperty(bottom_padding_property)) || 0;
-    
-    let top_safe_padding = top_padding + safeArea.top;
+    let top_padding = top_custom_padding + top_safe_area_padding;
 
     if (tg.isFullscreen)
-        top_safe_padding += top_fullSize_padding;
+        top_padding += content_inset_padding;
+    
+    if (top_padding == top_custom_padding)
+        top_padding += top_custom_padding;
    
-    let bottom_safe_padding = bottom_padding + safeArea.bottom;
+    let bottom_padding = bottom_custom_padding + bottom_safe_area_padding;
 
-    setProperty(bottom_safe_property, rem(bottom_safe_padding));
-    setProperty(top_safe_property, rem(top_safe_padding));
+    setProperty("--top-safe-area", rem(bottom_padding));
+    setProperty("--bottom-safe-area", rem(top_padding));
 }
 
 window.getTelegramPlatform = function () {
