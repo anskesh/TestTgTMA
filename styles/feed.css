@@ -41,13 +41,10 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 5.1875rem 0.75rem 1.125rem 0.75rem;
+  padding: calc(var(--top-safe-area) + 2.375rem) 0.75rem var(--bottom-safe-area) 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-}
-.message__info--mobile-padding {
-  padding-top: 7.5rem;
 }
 
 .message__info-text {
@@ -185,15 +182,12 @@
   height: 2.375rem;
   top: 0;
   padding: 0 0.75rem 0 0.75rem;
-  margin-top: 2.8125rem;
+  margin-top: var(--top-safe-area);
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-.header--mobile-margin {
-  margin-top: 5.125rem;
 }
 
 .image {

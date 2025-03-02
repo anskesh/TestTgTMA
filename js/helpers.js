@@ -1,4 +1,16 @@
-﻿window.messagesPreloaded = function () {
+﻿function rem(px){
+    return px / 16 + "rem";
+}
+
+function setProperty(name, value){
+    document.documentElement.style.setProperty(name, value);
+}
+
+function getProperty(name){
+    return getComputedStyle(document.documentElement).getPropertyValue(name);
+}
+
+window.messagesPreloaded = function () {
     let loading = document.getElementById("loading");
 
     loading.style.opacity = "0";

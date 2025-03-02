@@ -5,20 +5,16 @@
   z-index: 1;
   position: fixed;
   width: 100%;
-  height: rem(38);
+  height: $header-size;
   top: 0;
   padding: 0 rem(12) 0 rem(12);
-  margin-top: $desktop-top;
+  margin-top: var(--top-safe-area);
   box-sizing: border-box;
   
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  &--mobile-margin {
-    margin-top: $mobile-top;
-  }
 }
 
 .image {
