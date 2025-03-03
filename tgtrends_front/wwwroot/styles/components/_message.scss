@@ -102,7 +102,7 @@
 
     height: auto;
     width: 100%;
-    font-size: rem(15);
+    font-size: rem(16);
     line-height: 130%;
   }
 }
@@ -144,9 +144,14 @@
   .channel__info {
     display: flex;
     flex-direction: row;
-    width: rem(181);
-    flex-grow: 1;
+    width: auto;
     max-width: 50%;
+    padding: rem(8) rem(12) rem(8) 0;
+    border-radius: rem(24);
+
+    &:active {
+      background: rgba(37, 37, 37, 0.3);
+    }
 
     img {
       width: rem(38);
@@ -158,8 +163,7 @@
     .channel__info-text {
       display: flex;
       flex-direction: column;
-      width: rem(90);
-      flex-grow: 1;
+      width: auto;
 
       .channel-name {
         font-weight: 700;
@@ -191,12 +195,12 @@
     box-sizing: border-box;
 
     svg {
-      color: var(--color-gray);
+      color: var(--color-white);
       margin-right: rem(8);
     }
 
     span {
-      color: var(--color-gray);
+      color: var(--color-white);
       font-size: rem(15);
       font-weight: 400;
       letter-spacing: rem(-0.04);
