@@ -11,6 +11,7 @@ function getProperty(name){
 }
 
 window.messagesPreloaded = function () {
+    applySafeArea();
     let loading = document.getElementById("loading");
 
     loading.style.opacity = "0";
