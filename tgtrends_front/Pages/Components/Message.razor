@@ -9,7 +9,7 @@
         <img src="@(MessageData.ImgUrl ?? ChannelData.ImgUrl)" class="image image__background"/>
         <img src="@MessageData.ImgUrl" class="image image--contain"/>
         <div class="image image__shadow"></div>
-        <div class="image image__text-opened @(!_textIsOpened ? "is-hidden" : "")"></div>
+        <div class="image image__text-opened @(!_textIsOpened ? "is-hidden-shadow" : "")"></div>
     </div>
     <div class="message__info">
         <div class="message__info-text">
