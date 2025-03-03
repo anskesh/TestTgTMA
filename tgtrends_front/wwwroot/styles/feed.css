@@ -88,7 +88,7 @@
   overflow: hidden;
   height: auto;
   width: 100%;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 130%;
 }
 
@@ -126,9 +126,13 @@
 .message__info-channel .channel__info {
   display: flex;
   flex-direction: row;
-  width: 11.3125rem;
-  flex-grow: 1;
+  width: auto;
   max-width: 50%;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-radius: 1.5rem;
+}
+.message__info-channel .channel__info:active {
+  background: rgba(37, 37, 37, 0.3);
 }
 .message__info-channel .channel__info img {
   width: 2.375rem;
@@ -139,8 +143,7 @@
 .message__info-channel .channel__info .channel__info-text {
   display: flex;
   flex-direction: column;
-  width: 5.625rem;
-  flex-grow: 1;
+  width: auto;
 }
 .message__info-channel .channel__info .channel__info-text .channel-name {
   font-weight: 700;
@@ -168,11 +171,11 @@
   box-sizing: border-box;
 }
 .message__info-channel .channel__goto-link svg {
-  color: var(--color-gray);
+  color: var(--color-white);
   margin-right: 0.5rem;
 }
 .message__info-channel .channel__goto-link span {
-  color: var(--color-gray);
+  color: var(--color-white);
   font-size: 0.9375rem;
   font-weight: 400;
   letter-spacing: -0.0025rem;
