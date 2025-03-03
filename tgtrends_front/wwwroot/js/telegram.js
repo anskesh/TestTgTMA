@@ -1,20 +1,19 @@
 ﻿let tg = window.Telegram.WebApp;
-tryResizeView();
-
 tg.onEvent("safeAreaChanged", applySafeArea);
 tg.onEvent("contentSafeAreaChanged ", applySafeArea);
 
+tryResizeView();
+
 function tryResizeView (){
-    if (tg !== null) {
-        if (tg.version < "8.0")
-            return;
+    if (tg === null || tg.version < "8.0")
+        return;
         
-        if (tg.platform == "android" || tg.platform == "ios") {
-            tg.requestFullscreen();
-        }
-        else {
-            tg.exitFullscreen();
-        }
+    if (tg.platform == "android" || tg.platform == "ios") {
+        tg.requestFullscreen();
+        tg.expand();
+    }
+    else {
+        tg.exitFullscreen();
     }
 }
 
@@ -28,7 +27,7 @@ function applySafeArea(){
     
     let top_padding = top_custom_padding + top_safe_area_padding;
 
-    if (tg.isFullscreen)
+    if (tg?.isFullscreen)
         top_padding += top_content_inset_padding;
     
     if (top_padding === top_custom_padding)
