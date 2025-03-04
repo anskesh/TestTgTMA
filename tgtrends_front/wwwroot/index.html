@@ -13,9 +13,12 @@
     <div id="app"></div>
     
     <div id="loading">
-        <h1>TRENDS</h1>
         <div class="loading__container">
-            <div class="loading__container-bar"></div>
+            <img src="images/back_dark.jpg" class="loading-background">
+            <div class="loading__container-bar">
+                <div class="loading__mask"></div>
+                <img src="images/white_logo.png">
+            </div>
         </div>
     </div>
     
@@ -31,22 +34,6 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             tg.ready();
-            
-            function updateProgress() {
-                const percentage = parseFloat(getComputedStyle(document.documentElement)
-                    .getPropertyValue('--blazor-load-percentage')
-                    .replace('%', '') || 0);
-
-                console.log(getComputedStyle(document.documentElement)
-                    .getPropertyValue('--blazor-load-percentage'))
-                document.querySelector('.loading__container-bar').style.width = percentage + "%";
-
-                if (percentage < 100) {
-                    requestAnimationFrame(updateProgress);
-                }
-            }
-
-            updateProgress();
         });
     </script>
 
