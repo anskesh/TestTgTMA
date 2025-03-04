@@ -35,4 +35,9 @@ public class TelegramService
         Console.WriteLine($"Going to link: {url}");
         await _jsRuntime.InvokeVoidAsync("openTelegramLink", url);
     }
+
+    public async Task SharePost()
+    {
+        throw new NotImplementedException();
+    }
 }
