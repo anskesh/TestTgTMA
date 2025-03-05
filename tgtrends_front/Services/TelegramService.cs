@@ -27,7 +27,7 @@ public class TelegramService
 
     public async Task GoToTelegramLink(string url)
     {
-        await GoToLink($"https://t.me/{url}/");
+        await GoToLink($"https://t.me/c/{url}/");
     }
 
     public async Task GoToLink(string url)
