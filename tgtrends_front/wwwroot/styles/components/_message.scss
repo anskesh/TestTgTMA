@@ -88,6 +88,10 @@
     transition: height 0.3s ease-in;
   }
   
+  &--no-content {
+    justify-content: center;
+  }
+  
   svg {
     margin-bottom: rem(8);
     min-height: rem(14);
