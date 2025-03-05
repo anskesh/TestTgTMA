@@ -301,8 +301,6 @@
   justify-content: center;
 }
 .header__info .info__tokens svg {
-  /*width: rem(20);
-  height: rem(20);*/
   margin-right: 0.5rem;
 }
 .header__info .info__tokens span {

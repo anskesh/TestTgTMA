@@ -14,10 +14,14 @@ window.messagesPreloaded = function () {
     applySafeArea();
     let loading = document.getElementById("loading");
 
-    loading.style.opacity = "0";
+    document.querySelector('.loading-image').style.clipPath = `polygon(0 0, 100% 0, 100% 100%, 0 100%)`;
+    
     setTimeout(() => {
-        loading.style.display = "none";
-    }, 100);
+        loading.style.opacity = "0";
+        setTimeout(() => {
+            loading.style.display = "none";
+        }, 200)
+    }, 200);
 }
 
 window.getElementHeight = (element) => {
