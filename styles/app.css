@@ -453,6 +453,7 @@ code {
   position: fixed;
   top: 0;
   left: 0;
+  padding: 10% 15%;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -474,6 +475,7 @@ code {
   height: 100%;
   overflow: hidden;
   position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -488,6 +490,7 @@ code {
 .loading__container-bar {
   width: 100%;
   height: 100%;
+  display: flex;
 }
 .loading__container-bar img {
   width: 100%;
