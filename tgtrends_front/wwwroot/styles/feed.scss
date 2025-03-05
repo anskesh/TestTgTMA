@@ -89,9 +89,9 @@
     align-items: center;
     justify-content: center;
     
-    img {
-      width: rem(20);
-      height: rem(20);
+    svg {
+      /*width: rem(20);
+      height: rem(20);*/
       margin-right: rem(8);
     }
     
@@ -101,13 +101,8 @@
   }
 
   .header__profile {
-    width: rem(38);
-    height: 100%;
-
-    img {
-      background: none;
-      width: rem(14);
-      height: rem(13);
-    }
+    padding: rem(12);
+    display: flex;
+    align-items: center;
   }
 }

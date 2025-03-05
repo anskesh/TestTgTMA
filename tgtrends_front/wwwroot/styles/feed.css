@@ -300,22 +300,18 @@
   align-items: center;
   justify-content: center;
 }
-.header__info .info__tokens img {
-  width: 1.25rem;
-  height: 1.25rem;
+.header__info .info__tokens svg {
+  /*width: rem(20);
+  height: rem(20);*/
   margin-right: 0.5rem;
 }
 .header__info .info__tokens span {
   font-size: 0.9375rem;
 }
 .header__info .header__profile {
-  width: 2.375rem;
-  height: 100%;
-}
-.header__info .header__profile img {
-  background: none;
-  width: 0.875rem;
-  height: 0.8125rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=feed.css.map */
