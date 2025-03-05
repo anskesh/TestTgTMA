@@ -99,7 +99,7 @@
 
     private async Task GoToPostClick()
     {
-        await TelegramService.GoToTelegramLink($"{ChannelData.ID}/{MessageData.ID}");
+        await TelegramService.GoToTelegramLink($"c/{ChannelData.ID}/{MessageData.ID}");
     }
 
     private async Task GoToChannelClick()
