@@ -76,6 +76,9 @@
   height: 100%;
   transition: height 0.3s ease-in;
 }
+.text-scroll--no-content {
+  justify-content: center;
+}
 .text-scroll svg {
   margin-bottom: 0.5rem;
   min-height: 0.875rem;
