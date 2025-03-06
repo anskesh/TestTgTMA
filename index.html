@@ -16,7 +16,6 @@
         <div class="loading__container">
             <img src="images/back_dark_test.png" class="loading-background">
             <div class="loading__container-bar">
-                <div class="loading__mask"></div>
                 <img src="images/white_logo.png" class="loading-image">
             </div>
         </div>
@@ -30,41 +29,33 @@
             </div>
         </div>
     </div>
-
+    
     <script>
+        let percentage = 5;
+        let delta = percentage;
+        const maxBlazorPercentage = 75;
+
         document.addEventListener("DOMContentLoaded", function () {
             tg.ready();
-
-            function updateProgress() {
-                let percentage = parseFloat(getComputedStyle(document.documentElement)
-                    .getPropertyValue('--blazor-load-percentage')
-                    .replace('%', '') || 0);
-
-                console.log(getComputedStyle(document.documentElement)
-                    .getPropertyValue('--blazor-load-percentage'))
-                
-                const maxBlazorPercentage = 67;
-                
-                if (percentage > maxBlazorPercentage)
-                    percentage = maxBlazorPercentage;
-                
-                document.querySelector('.loading-image').style.clipPath = `polygon(0 0, ${percentage + 18}% 0, ${percentage}% 100%, 0 100%)`;
-
-                if (percentage < maxBlazorPercentage) {
-                    setTimeout(() => {
-                        requestAnimationFrame(updateProgress);
-                    }, 100)
-                }
-            }
-
             updateProgress();
         });
+
+        function updateProgress() {
+            document.querySelector('.loading-image').style.clipPath = `polygon(0 0, ${percentage + 20}% 0, ${percentage}% 100%, 0 100%)`;
+
+            if (percentage < maxBlazorPercentage) {
+                setTimeout(() => {
+                    updateProgress();
+                    percentage += delta;
+                }, 700)
+            }
+        }
     </script>
 
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     
-    <script src="js/helpers.js"></script>
     <script src="js/telegram.js"></script>
+    <script src="js/helpers.js"></script>
     
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
