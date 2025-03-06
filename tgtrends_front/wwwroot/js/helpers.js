@@ -12,16 +12,17 @@ function getProperty(name){
 
 window.messagesPreloaded = function () {
     applySafeArea();
-    let loading = document.getElementById("loading");
 
-    document.querySelector('.loading-image').style.clipPath = `polygon(0 0, 100% 0, 100% 100%, 0 100%)`;
+    let loading = document.getElementById("loading");
+    percentage = 100;
+    updateProgress();
     
     setTimeout(() => {
         loading.style.opacity = "0";
         setTimeout(() => {
             loading.style.display = "none";
         }, 200)
-    }, 200);
+    }, 250);
 }
 
 window.getElementHeight = (element) => {
