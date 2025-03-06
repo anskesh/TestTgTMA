@@ -463,7 +463,7 @@ code {
   align-items: center;
   justify-content: center;
   background-color: var(--color-blue);
-  transition: opacity 0.8s linear;
+  transition: opacity 0.2s ease-out;
 }
 #loading h1 {
   font-size: 2.125rem;
@@ -498,7 +498,7 @@ code {
   z-index: 1;
   object-fit: contain;
   clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-  transition: clip-path 0.6s ease-in-out;
+  transition: clip-path 0.5s linear;
 }
 .loading__container-bar div {
   position: absolute;
