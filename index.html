@@ -31,23 +31,28 @@
     </div>
     
     <script>
-        let percentage = 5;
+        let percentage = 2;
         let delta = percentage;
         const maxBlazorPercentage = 75;
+        let loading_image = document.querySelector('.loading-image');
 
         document.addEventListener("DOMContentLoaded", function () {
             tg.ready();
-            updateProgress();
+            percentage = maxBlazorPercentage;
+            updateProgress('15s');
         });
 
-        function updateProgress() {
-            document.querySelector('.loading-image').style.clipPath = `polygon(0 0, ${percentage + 20}% 0, ${percentage}% 100%, 0 100%)`;
-
+        function updateProgress(transition = '0.5s') {
+            loading_image.style.clipPath = `polygon(0 0, ${percentage + 20}% 0, ${percentage}% 100%, 0 100%)`;
+            loading_image.style.transition = `clip-path ${transition} linear`;
+            
+            console.log(percentage)
+            
             if (percentage < maxBlazorPercentage) {
                 setTimeout(() => {
                     updateProgress();
                     percentage += delta;
-                }, 700)
+                }, 200)
             }
         }
     </script>
