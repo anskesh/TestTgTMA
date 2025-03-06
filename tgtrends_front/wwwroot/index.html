@@ -37,6 +37,8 @@
         let loading_image = document.querySelector('.loading-image');
 
         document.addEventListener("DOMContentLoaded", function () {
+            percentage = delta;
+            
             tg.ready();
             percentage = maxBlazorPercentage;
             updateProgress('15s');

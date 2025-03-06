@@ -51,6 +51,24 @@
     }
 </div>
 
+<script>
+    const container = document.querySelector('.slider');
+    const messageHeight = '100vh';
+    let startY = 0;
+
+    container.addEventListener('touchstart', (event) => {
+        startY = event.touches[0].clientY;
+    });
+
+    container.addEventListener('touchend', (event) => {
+        const deltaY = startY - event.changedTouches[0].clientY;
+        if (Math.abs(deltaY) > 30) { 
+            const direction = deltaY > 0 ? 1 : -1;
+            container.scrollBy({ top: messageHeight * direction, behavior: 'smooth' });
+        }
+    });
+</script>
+
 @code
 {
     private List<MessageData> _messages = new();
