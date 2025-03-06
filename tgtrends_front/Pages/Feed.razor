@@ -53,20 +53,29 @@
 
 <script>
     const container = document.querySelector('.slider');
-    const messageHeight = '100vh';
+    const message = document.querySelector('.message');
+    const messageHeight = message.clientHeight;
     let startY = 0;
+    let currentIndex = 0;
+    let isScrolling = false;
 
     container.addEventListener('touchstart', (event) => {
         startY = event.touches[0].clientY;
-    });
+    }, { passive: true });
 
     container.addEventListener('touchend', (event) => {
+        if (isScrolling) return;
+
         const deltaY = startY - event.changedTouches[0].clientY;
-        if (Math.abs(deltaY) > 30) { 
+        if (Math.abs(deltaY) > 30) {
             const direction = deltaY > 0 ? 1 : -1;
+            isScrolling = true;
             container.scrollBy({ top: messageHeight * direction, behavior: 'smooth' });
+
+            setTimeout(() => isScrolling = false, 200);
         }
-    });
+    }, { passive: true });
+
 </script>
 
 @code
@@ -100,10 +109,5 @@
     {
         _messages = ChannelsService.Messages;
         StateHasChanged();
-
-        if (ChannelsService.MessagesPreloaded)
-        {
-            JsRuntime.InvokeVoidAsync("messagesPreloaded");
-        }
     }
 }

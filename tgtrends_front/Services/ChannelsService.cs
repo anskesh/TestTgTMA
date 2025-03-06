@@ -1,29 +1,33 @@
-﻿using tgtrends_front.Data;
+﻿using Microsoft.JSInterop;
+using tgtrends_front.Data;
 using tgtrends_front.DTO;
 
 namespace tgtrends_front.Services;
+
 
 public class ChannelsService
 {
     public event Action OnMessagesUpdated;
 
-    public bool MessagesPreloaded => _messages.Count >= _preloadedMessagesCount;
     public List<MessageData> Messages => _messages;
-    
+
     private readonly ApiClient _apiClient;
+    private readonly IJSRuntime _jsRuntime;
     private readonly int _preloadedMessagesCount = 5;
-    
+
     private TgUserDto _user;
     private List<ChannelData> _tgChannels = new();
     private List<ChannelMessageDto> _tgMessages = new();
-    
+
     private List<MessageData> _messages = new();
     private List<int> _loadingIds = new();
     private List<long> _loadingMessagesIds = new();
-    
-    public ChannelsService(ApiClient apiClient)
+
+    public ChannelsService(ApiClient apiClient, IJSRuntime jsRuntime)
     {
         _apiClient = apiClient;
+        _jsRuntime = jsRuntime;
+        
         PreloadMessages();
     }
 
@@ -32,23 +36,33 @@ public class ChannelsService
         _user = await _apiClient.GetUserAsync(1);
         List<TgChannelDto> channels = _user.TgChannels;
         var loadChannelsTasks = new List<Task>();
-        
+
         foreach (TgChannelDto channel in channels)
         {
             loadChannelsTasks.Add(LoadChannel(channel));
         }
-        
+
         await Task.WhenAll(loadChannelsTasks);
 
         Console.WriteLine($"Loaded {channels.Count} channels");
-        
+
+        var loadMessagesTasks = new List<Task>();
+
         for (int i = 0; i < _preloadedMessagesCount; i++)
         {
-            LoadMoreMessages(i, true);
+            loadMessagesTasks.Add(LoadMoreMessages(i, true));
         }
+
+        await Task.WhenAll(loadMessagesTasks);
+        MessagesPreloaded();
     }
 
-    private async Task LoadChannel(TgChannelDto channel)
+    private void MessagesPreloaded()
+    {
+        _jsRuntime.InvokeVoidAsync("messagesPreloaded");
+    }
+
+private async Task LoadChannel(TgChannelDto channel)
     {
         ChannelData channelData = new ChannelData(channel, GetImageBase64Async(await _apiClient.GetChannelImageAsync(channel.ID)));
         List<ChannelMessageDto> messages = await _apiClient.GetChannelMessagesAsync(channel.ID);
@@ -81,7 +95,7 @@ public class ChannelsService
             {
                 _loadingMessagesIds.Add(message.MessageID);
                 await LoadMessage(channelData, message);
-                Console.WriteLine("Loaded");
+                Console.WriteLine("Loaded new message");
                 return;
             }
         }
