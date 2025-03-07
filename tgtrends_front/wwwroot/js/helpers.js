@@ -34,9 +34,13 @@ window.scrollHandler = {
         let startY = 0;
         let currentY = 0;
         let index = 0;
+        
         let isTouching = false;
+        let isAnimating = false;
+        
         let container = document.querySelector(sliderSelector);
-        const SWIPE_THRESHOLD = 50;
+        
+        const SWIPE_THRESHOLD = 30;
 
         if (!container) return;
 
@@ -51,6 +55,7 @@ window.scrollHandler = {
             let deltaY = e.touches[0].clientY - currentY;
             container.scrollTop -= deltaY;
             currentY = e.touches[0].clientY;
+            e.preventDefault();
         });
 
         container.addEventListener("touchend", () => {
@@ -68,53 +73,59 @@ window.scrollHandler = {
         let isScrolling = false;
         
         container.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            
             if (isScrolling) return;
             isScrolling = true;
 
             if (e.deltaY > 0) index++;
             else index--;
 
-            snapToIndex(index, dotNetHelper);
+            snapToIndex(index, dotNetHelper, 400);
 
             setTimeout(() => isScrolling = false, 500);
         });
 
-        function snapToIndex(i, dotNetHelper) {
-            const posts = document.querySelectorAll(messageSelector);
+        function snapToIndex(i, dotNetHelper, duration = 200) {
+            let posts = document.querySelectorAll(messageSelector);
 
             if (i < 0) i = 0;
             if (i >= posts.length) i = posts.length - 1;
             index = i;
 
             if (posts[i]) {
-                smoothScrollTo(posts[i]);
+                smoothScrollTo(posts[i], duration);
                 dotNetHelper.invokeMethodAsync("OnScrollIndexChanged", i);
             }
         }
 
-        function smoothScrollTo(element, duration = 300) {
-            let start = window.scrollY || container.scrollTop;
-            let end = element.getBoundingClientRect().top + start;
+        function smoothScrollTo(element, duration) {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            let start = container.scrollTop;
+            let end = element.offsetTop;
             let startTime = performance.now();
 
-            function scrollStep(timestamp) {
+            function animateScroll(timestamp) {
                 let progress = (timestamp - startTime) / duration;
                 if (progress > 1) progress = 1;
 
-                let easeInOut = progress < 0.5
-                    ? 2 * progress * progress
-                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+                let easeOutQuad = 1 - (1 - progress) * (1 - progress);
 
-                container.scrollTo(0, start + (end - start) * easeInOut);
+                container.scrollTop = start + (end - start) * easeOutQuad;
 
                 if (progress < 1) {
-                    requestAnimationFrame(scrollStep);
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    isAnimating = false;
                 }
             }
 
-            requestAnimationFrame(scrollStep);
+            requestAnimationFrame(animateScroll);
         }
     }
 };
+
 
 
